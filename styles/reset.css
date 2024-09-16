@@ -1,0 +1,48 @@
+/*Falta conectar al index*/
+
+
+
+/* Reset CSS básico */
+
+/* Establecer el tamaño de la fuente y el margen de todos los elementos a cero */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Esto asegura que el ancho y alto incluyan el relleno y el borde, pero no el margen */
+}
+
+/* Establecer el tamaño de la fuente predeterminado */
+html {
+    font-size: 16px;
+}
+
+/* Establecer estilos básicos para elementos de texto */
+body, button, input, select, textarea {
+    font-family: Arial, sans-serif;
+}
+
+/* Eliminar los estilos de lista predeterminados */
+ul, ol {
+    list-style: none;
+}
+
+/* Reiniciar los estilos del enlace */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Reiniciar los estilos del encabezado */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: normal;
+}
+
+/* Establecer márgenes para todos los elementos */
+/* (Puedes ajustar estos valores según tus necesidades) */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Otros estilos específicos que desees reiniciar o establecer */

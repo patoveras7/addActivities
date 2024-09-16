@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+.body {
+    background-image: url('../imagenes/matrix.png'); 
+}
+.presentation1{
+    display: flex;
+    justify-content: center;
+}
+
+.presentation1 h1{
+    display: flex;
+    justify-content: center;
+    background-color:yellow;
+    padding: 0.3em 0.3em 0.3em 0.3em;
+    border-radius: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0 0 10px #f5f5f5(0, 0, 0, 0.5);
+    border: 0.3em solid #f5f5f5;
+    font-size: 3em;
+
+}
+.author, .question{
+    display: flex;
+    justify-content: center;
+}
+.author h1, .question h1{
+    display: flex;
+    justify-content: center;
+    padding: 0.3em 0.3em 0.3em 0.3em;
+    font-size: 1em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 0.5em;
+    background-color: darkgrey;
+    width:fit-content;
+    border: 3px solid yellow;
+    
+}
+
+.presentation2{
+    display: flex;
+    justify-content: center;
+}
+
+.presentation2 p {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    background-color:darkgray;
+    color:#000;
+    padding: 0.8em 0.8em 0.8em 0.8em;
+    border-radius: 0.5em;
+    margin: 1em 5em 2em 5em;
+    font-size: 1.2em;
+    text-align: justify;
+    box-shadow: 0 0 1em white /*Sombra directamente detras del elemento con 1em de difuminacion y de color blanco*/
+}
+
+.wrapper {
+    position: relative; /*Permite que el elemento ocupe su espacio natural en el documento pero que sea desplazado por las propiedades top, left, bottom, right*/
+    width: 100%;
+    height: 100%;
+    padding: 20px; /*Se losgra un espacio entre las imagenes y el contenedor*/
+    display: flex; /*Se deja de acumular todo naturalmente en columna y pasa a fila*/
+    align-content: center;
+    justify-content: center; /*Las imagenes pasan a centrarse en la pantalla*/
+    gap: 5em; /*Logra una separacion entre las imagenes*/
+    margin-top: 1em;
+    margin-bottom: 1em;
+    flex-wrap: wrap; /*Simplemente es de uso potencial, en caso de que no haya suficiente espacio para las imagenes en el contenedor, las pasa a la siguiente linea*/
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 21em;
+    height: 28em;
+    border-radius: 18px;
+    overflow: hidden;/*Por si el contenido del contenedor es demasiado grande, con hidden será cortado*/
+    box-shadow: 0 0 1em white;
+}
+
+.poster {
+    position: relative;
+    width: 100%; /*Significa que va a ocupar el 100% del contenedor que es la carta*/
+    height: 100%;
+}
+
+.poster img {
+    position: relative;/*Si el elemento es desplazado por las propiedades top, left, bottom, right, este se va a mover dentro del contenedor pero no va a dejar espacio vacio*/
+    width: 100%; /*Como su padre ocupa un 100% tambien el hijo tiene que ocuparlo sino hay un desequilibrio*/
+    height: 100%;
+    object-fit: cover; /*Funciona basicamente como un ajustador de contenido*/
+}
+
+
+.card:hover .poster img { /*cuando se pase el cursor sobre la card la imagen del poster va a hacer tal cosa*/
+    transform: scale(1.3); /*Se utiliza para aplicar zoom y modificar tamaño. Si se proporciona solo un valor el zoom es parejo*/
+}
+
+.details {
+    position: absolute; /*Si fuera relativo no habria superpocisión en el contenedor. Lo que queramos que se superponga deber ser absoluto*/
+    bottom: -100%; /*Ya que lo pusimos como absolute podemos manejarlo con bottom. Inicialmente será invisible pero luego el bottom será de 0*/
+    width: 100%;
+    height: 100%;
+    text-align: justify;
+    padding: 1.5em 1.5em 2em;
+    background-color: #000a; /*Color negro con cierta transparencia 'a'*/
+    backdrop-filter: blur(16px) saturate(120%); /*aplicamos un filtro de desenfoque al elemento detras de la imagen superpuesta.*/
+    transition: 0.5s; /*Es lo que define la transicion de un efecto al otro*/
+    color: #fff; /*Todo lo que esta dentro va a estar en color blanco*/
+    z-index: 1; /*Cuando hay elementos superpuestos el z-index establece cual va a ser visible. Por defecto es el ultimo en ejecucion pero sino quien tiene un z-index mas alto se verá*/
+}
+
+.card:hover .details {
+    bottom: 0; /*Cuando se pase el cursor sobre la card el bottom va a ser de 0 y los detalles se mostraran*/
+}
+
+.details h1, /*Marcamos dos selectores a traves de una coma.*/
+.details h2 {
+    font-weight: 700;
+    text-align: center;
+}
+
+.details h1 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.details h2 {
+    font-weight: 400;
+    font-size: 1em;
+    margin-bottom: 10px;
+    opacity: .6;
+}
+
+.details .rating {
+    position: relative;
+    margin-bottom: 15px;
+    display: flex;
+    gap: .25em;
+}
+
+.details .rating i {
+    color: #e3c414;
+}
+
+.details .rating span {
+    margin-left: 0.25em;;
+}
+
+.details .tags {
+    display: flex;
+    gap: .375em;
+    margin-bottom: .875em;
+    font-size: .85em;
+    padding-left: 0.5em;
+    justify-content: center;
+}
+
+.details .tags span {
+    padding: .35rem .65rem;
+    color: #fff;
+    border: 1.5px solid rgba(255 255 255 / 0.4);
+    border-radius: 4px;
+    border-radius: 50px;
+    text-align: center; /*No funciono el centrado del texto con justify-content, siempre probar con text-aling*/
+
+}
+
+.activities{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    gap: 1em;   
+       
+}
+
+.title, .description, .imgUrl{
+    display: flex;
+    margin: auto;
+    width: 105em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em white;
+    opacity: 0.8;
+    
+}
+.title{
+    height: 3em;
+    padding-bottom: 0.5;
+    padding-top: 0.5em;
+}
+.description{
+    height: 5em;
+    padding-bottom: 8em;
+    padding-top: 2em;
+}
+.imgUrl{
+    height: 3em;
+    padding-bottom: 0.5;
+    padding-top: 0.5em;
+}
+
+::placeholder{
+    color: black;
+    font-size: 1.5em;
+    padding-left: 0.5em;
+}
+.button{
+    margin-left: 18.9em;
+    margin-bottom: 4em;
+    width: 10em;
+    height: 2em;
+    text-align: center;
+    border-radius: 0.3em;
+    
+}
+
+.button:hover{
+    transform: scale(1.1);
+    background-color: yellow;
+}
+
+.generalContainer{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    border-radius: 0.7em;
+    box-shadow: 0 0 1em white;
+    background-color: darkgrey;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 4em;
+    padding: 35px;
+    gap: 3em;
+    flex-wrap: wrap;   
+}
+
+.cardActivity{
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+    box-shadow: 0 0 1em black;
+    border: solid 4px black;
+    width: 21em;
+    height: 29em;
+    gap : 1em;
+    background-color: #000a;
+    transition: 0.5s;
+}
+
+.titleActivity{
+display: flex;
+justify-content: center;
+margin-top: 2em;
+background-color: white;
+width: 80%;
+height: 1.3em;
+overflow: auto;
+border: solid 2px yellow;
+}
+
+.imgActivity{ 
+display: flex;
+justify-content: center;
+margin-top: 1em;
+margin-left: 3.1em;
+width: 70%;
+height: 50%;
+border-radius: 0.7em;
+border: solid 2px yellow;
+filter: grayscale(100%);
+}
+
+.descriptionActivity{
+display: flex;
+justify-content: center;
+background-color: lightblue;
+margin-top: 1.5em;
+margin-left: 20%;
+height: 5em;
+padding: 0.5em;
+overflow: auto;
+text-align: justify;
+border-radius: 0.7em;
+border: solid 2px yellow;
+}
+::-webkit-scrollbar {
+    display: none;
+  }
+.generalContainer:hover .cardActivity{
+    transform: scale(0.8);
+}
+
+.generalContainer:hover .cardActivity:hover{
+    transform: scale(1.1);
+    background-color: black;
+}
+
+.generalContainer:hover{
+    transform: scale(1.1);
+}
+
+.cardActivity:hover .imgActivity{
+    filter: grayscale(0%);
+}
